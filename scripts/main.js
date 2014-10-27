@@ -2,11 +2,6 @@
 
 $(document).ready(function(){
 
-  function hideSplash(){
-    $('.splash').hide();
-    $('.carousel').addClass('show');
-  }
-
   $('.carousel').slick({
     lazyLoad: 'ondemand',
     autoplay: true,
@@ -19,8 +14,7 @@ $(document).ready(function(){
     arrows: false,
     ease: 'linear',
     useCSS: false,
-    pauseOnHover: false,
-    onInit: hideSplash
+    pauseOnHover: false
   });
 
   $('.btn-menu').on('click', function(){

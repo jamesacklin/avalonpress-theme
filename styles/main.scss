@@ -187,7 +187,6 @@ header {
   overflow: hidden;
   @media (max-width: $screen-sm) and (orientation: portrait) {
     .carousel {
-
     }
     img {
       transform: translate(-33%, 0);
@@ -200,11 +199,12 @@ header {
     img { width: 100%; }
   }
   .carousel {
-    height: 0; width: 0; overflow: hidden;
-    &.show { height: auto; width: 100%; }
+    position: relative;
+    height: auto; width: 100%;
   }
   .headline {
     position: absolute;
+    z-index: 900;
     width: 80%;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
@@ -239,6 +239,7 @@ header {
 
 .page-header {
   @extend .home-hero;
+  background: $lightblue;
   text-align: center;
   overflow: hidden;
   height: 0;
