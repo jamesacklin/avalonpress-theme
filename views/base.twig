@@ -1,14 +1,19 @@
 {% block html_head_container %}
-  {% include 'html_header.twig' %}
+  {% include 'html-header.twig' %}
   {% block head %}
   {% endblock %}
   </head>
 {% endblock %}
   <body data-template="base.twig">
+    {% block navigation %}
+      {% include 'navigation.twig' %}
+    {% endblock %}
     {% block content %}
       Sorry, no content
     {% endblock %}
     {% block footer %}
+      {% include 'footer.twig' %}
+      {% include 'html-footer.twig' %}
       {{ function('wp_footer') }}
     {% endblock %}
   </body>
