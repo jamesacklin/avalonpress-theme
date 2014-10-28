@@ -1,0 +1,20 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+  <div class="page-header">
+    {% if post.get_thumbnail %}
+      <img src="{{post.get_thumbnail.get_src}}">
+    {% endif %}
+    <div class="headline">
+      <h1>{{post.title}}</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <article>
+      <p>{{post.get_content}}</p>
+    </article>
+  </div>
+
+{% endblock %}
