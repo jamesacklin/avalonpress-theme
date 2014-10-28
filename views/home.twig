@@ -4,9 +4,10 @@
 
   <div class="home-hero">
     <div class="carousel">
-      {% set firstimage = page.get_field('homepage_images')|first %}
+      {% set images = page.get_field('homepage_images') %}
+      {% set firstimage = images|first %}
       <div><img src="{{TimberImage(firstimage.image).src}}" alt=""></div>
-      {% for item in page.get_field('homepage_images')|slice(1) %}
+      {% for item in images|slice(1) %}
         <div><img data-lazy="{{TimberImage(item.image).src}}" /></div>
       {% endfor %}
     </div>
