@@ -19,8 +19,14 @@
       <p>{{store.get_field('phone')}}</p>
     </div>
     {% if page.slug != "home" %}
-      <div class="store-hours"></div>
-      <div class="store-hours"></div>
+      <div class="store-hours">
+        <h3>Store Hours</h3>
+        <p>{{store.get_field('store_hours')}}</p>
+      </div>
+      <div class="store-hours">
+        <h3>Buying Hours</h3>
+        <p>{{store.get_field('buying_hours')}}</p>
+      </div>
     {% endif %}
     <div class="store-buttons">
       <p>

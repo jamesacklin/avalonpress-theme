@@ -327,7 +327,12 @@ footer {
   }
 }
 
-.location-mini {
+
+.location-grid {
+  @include clearfix;
+}
+
+.location-grid .location {
   margin-bottom: 2em;
   @media (min-width: $screen-sm) {
     float: left;

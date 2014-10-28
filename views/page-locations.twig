@@ -1,0 +1,20 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+  <div class="page-header">
+    {% if page.get_thumbnail %}
+      <img src="{{page.get_thumbnail.get_src}}">
+    {% endif %}
+    <div class="headline">
+      <h1>{{page.title}}</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="location-grid">
+      {% include "stores.twig" %}
+    </div>
+  </div>
+
+{% endblock %}
