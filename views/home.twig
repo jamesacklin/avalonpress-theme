@@ -22,7 +22,7 @@
         <h2>{{store.title}}</h2>
         <p>{{store.get_field('address')}}</p>
         <p>{{store.get_field('phone')}}</p>
-        <p>
+        <p class="store-buttons">
           <a href="https://www.google.com/maps/place/{{store.get_field('address')}}/" class="btn"><i class="fa fa-fw fa-map-marker"></i> Map</a>
           <a href="http://www.instagram.com/{{store.get_field('instagram_username')}}" class="btn"><i class="fa fa-fw fa-instagram"></i> Instagram</a>
         </p>
