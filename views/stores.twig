@@ -1,0 +1,31 @@
+{% for store in stores %}
+  {% set address = store.get_field('address') %}
+  {% set address_fmt = address|replace({
+    'Ave. ': 'Ave.<br>',
+    'St. ': 'St.<br>',
+    'Rd. ': 'Rd.<br>',
+    'Blvd. ': 'Blvd.<br>'
+  }) %}
+  {% set address_esc = address|replace({' ': '+', ',': '', '.': ''}) %}
+  <div class="location">
+    {% if page.slug != "home" %}
+      <div class="store-map">
+        <a href="https://www.google.com/maps/place/{{address_esc}}/"><img src="https://maps.googleapis.com/maps/api/staticmap?center={{address_esc}}&zoom=16&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C{{address_esc}}" alt="Neighborhood Map of Avalon Exchange {{store.title}}"></a>
+      </div>
+    {% endif %}
+    <div class="store-details">
+      <h2>{{store.title}}</h2>
+      <p>{{address_fmt}}</p>
+      <p>{{store.get_field('phone')}}</p>
+    </div>
+    {% if page.slug != "home" %}
+      <div class="store-hours"></div>
+      <div class="store-hours"></div>
+    {% endif %}
+    <div class="store-buttons">
+      <p>
+        <a href="http://www.google.com/maps/place/{{address_esc}}/" class="btn"><i class="fa fa-fw fa-map-marker"></i> Map</a>
+        <a href="http://www.instagram.com/{{store.get_field('instagram_username')}}" class="btn"><i class="fa fa-fw fa-instagram"></i> Instagram</a>
+    </div>
+  </div>
+{% endfor %}

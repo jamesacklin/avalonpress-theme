@@ -228,11 +228,11 @@ header {
   @extend .container;
   font-size: 0.8em;
   p {
+    @media (max-width: $screen-sm) { font-size: 1rem; }
     line-height: 1.4em;
     margin-bottom: 0.5em;
-    &.store-buttons { margin-top: 1em; }
   }
-  .section {
+  .location {
     border-top: 1px solid rgba(0,0,0,0.25);
     margin: 2%;
     padding: 1em 0;
@@ -340,25 +340,25 @@ footer {
       padding: 0 0 0 2.5%;
     }
   }
-}
-
-.store-details {
-  @include clearfix;
-  margin-bottom: 1em;
-  h2 {
-    margin: 0.5em 0 0.25em;
-    color: $darknavy;
-  }
-  p, address { font-size: 1.125em; }
-  a {
-    text-decoration: none;
-    color: $darknavy;
-    &:hover {
-      color: $orange;
-      border-bottom: 1px solid $orange;
+  .store-details {
+    @include clearfix;
+    margin-bottom: 1em;
+    h2 {
+      margin: 0.5em 0 0.25em;
+      color: $darknavy;
+    }
+    p, address { font-size: 1.125em; }
+    a {
+      text-decoration: none;
+      color: $darknavy;
+      &:hover {
+        color: $orange;
+        border-bottom: 1px solid $orange;
+      }
     }
   }
 }
+
 .store-hours {
   h3 { margin-bottom: 0.25em; }
   margin-bottom: 1em;
@@ -366,6 +366,10 @@ footer {
     width: 50%;
     float: left;
   }
+}
+
+.store-buttons {
+  margin-top: 1em;
 }
 
 
