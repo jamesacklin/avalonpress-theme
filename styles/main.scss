@@ -227,6 +227,10 @@ header {
   @include flex-wrap(wrap);
   @extend .container;
   font-size: 0.8em;
+  p {
+    line-height: 1.4em;
+    margin-bottom: 0.5em;
+  }
   .section {
     border-top: 1px solid rgba(0,0,0,0.25);
     margin: 2%;

@@ -15,15 +15,19 @@
       <h1>{{site.description}}</h1>
     </div>
   </div>
+
   <div class="home-locations">
-    <div class="section">
-      <h2>Store Name</h2>
-      <p>Store Address</p>
-      <p>
-        <a href="https://www.google.com/maps/place/5858+Forbes+Ave,+Pittsburgh,+PA+15217/" class="btn"><i class="fa fa-fw fa-map-marker" title="Map"></i> Map</a>
-        <a href="http://www.instagram.com/avalonexchange" class="btn"><i class="fa fa-fw fa-instagram" title="Instagram"></i> Instagram</a>
-      </p>
-    </div>
+    {% for store in stores %}
+      <div class="section">
+        <h2>{{store.title}}</h2>
+        <p>{{store.get_field('address')}}</p>
+        <p>{{store.get_field('phone')}}</p>
+        <p>
+          <a href="https://www.google.com/maps/place/{{store.get_field('address')}}/" class="btn"><i class="fa fa-fw fa-map-marker"></i> Map</a>
+          <a href="http://www.instagram.com/{{store.get_field('instagram_username')}}" class="btn"><i class="fa fa-fw fa-instagram"></i> Instagram</a>
+        </p>
+      </div>
+    {% endfor %}
   </div>
 
 {% endblock %}
