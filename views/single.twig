@@ -12,8 +12,19 @@
   </div>
 
   <div class="container">
-    <article>
-      <p>{{post.get_content}}</p>
+    <article class="news-article single">
+      <header class="post-header">
+        <div class="meta">
+          <span>{{post.display_date}}</span>
+          <span>Posted by {{post.author.name}}</span>
+          <ul class="tags">
+          {% for term in post.terms('tags') %}
+            <li><a class="btn" href="{{term.link}}"><i class="fa fa-tag"></i> {{term.name}}</a></li>
+          {% endfor %}
+          </ul>
+        </div>
+      </header>
+      {{post.get_content}}
     </article>
   </div>
 

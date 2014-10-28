@@ -317,6 +317,8 @@ article {
   margin-bottom: 2.5em;
   padding-bottom: 1.25em;
   border-bottom: 1px solid $olive;
+  &:last-child,
+  &.single { border-bottom: none; }
   header {
     @extend .pullout;
   }
@@ -362,9 +364,13 @@ article {
 
 
 .column {
-  @media (min-width: $screen-sm){
+  @media (min-width: 1000px){
     float: left;
     width: 50%;
+    font-size: 0.8em
+  }
+  @media (min-width: 1100px){
+    font-size: 1em;
   }
 }
 
