@@ -8,6 +8,8 @@
     'post__not_in' => [$home_id]
   );
   $context['pages'] = Timber::get_posts($args);
+  $news_id = url_to_postid('/news');
+  $context['newspage'] = Timber::get_post($news_id);
   $context['title'] = 'Archive';
   if (is_day()){
     $context['title'] = 'Archive: '.get_the_date( 'D M Y' );

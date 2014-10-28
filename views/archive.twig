@@ -3,7 +3,9 @@
 {% block content %}
 
   <div class="page-header">
-    <img src="http://localhost/~james/avalonpress/wp-content/uploads/2014/10/0008.jpg">
+    {% if newspage.get_thumbnail %}
+      <img src="{{newspage.get_thumbnail.get_src}}">
+    {% endif %}
     <div class="headline">
       <h1>{{title}}</h1>
     </div>
