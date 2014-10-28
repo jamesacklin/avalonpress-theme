@@ -224,7 +224,9 @@ header {
 
 .home-locations {
   @include flexbox;
-  @include flex-wrap(wrap);
+  @media (max-width: 890px){
+    @include flex-wrap(wrap);
+  }
   @extend .container;
   font-size: 0.8em;
   p {
@@ -375,6 +377,7 @@ footer {
 
 .store-buttons {
   margin-top: 1em;
+  p { line-height: 3em; }
 }
 
 
