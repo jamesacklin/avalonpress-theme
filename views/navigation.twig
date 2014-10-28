@@ -1,10 +1,10 @@
 <header role="banner" class="home-header">
   <ul class="nav" role="navigation">
-    <li class="home"><a href="#"><i class="fa fa-2x fa-refresh"></i></a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Sell</a></li>
-    <li><a href="#">Locations</a></li>
-    <li><a href="#">News</a></li>
+    <li class="home"><a href="{{site.url}}"><i class="fa fa-2x fa-refresh"></i></a></li>
+    {% for page in pages %}
+      <li><a href="{{page.permalink}}">{{page.title}}</a></li>
+    {% endfor %}
+
   </ul>
   <a href="#" class="btn btn-menu"><i class="fa fa-bars"></i> Menu</a>
 </header>
