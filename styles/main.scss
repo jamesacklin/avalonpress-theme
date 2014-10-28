@@ -147,7 +147,7 @@ header[role=banner] {
     li:not(.home){ display: block; }
   }
   &.open {
-    li { display: block; }
+    li { display: block; text-align: center; }
   }
   a {
     @extend %sans-condensed;
@@ -185,19 +185,6 @@ header[role=banner] {
 .home-hero {
   position: relative;
   overflow: hidden;
-  @media (max-width: $screen-sm) and (orientation: portrait) {
-    .carousel {
-    }
-    img {
-      transform: translate(-33%, 0);
-      height: 89vh;
-      width: auto;
-      max-width: none;
-    }
-  }
-  @media (min-width: 1000px){
-    img { width: 100%; }
-  }
   .carousel {
     position: relative;
     height: auto; width: 100%;
@@ -208,6 +195,7 @@ header[role=banner] {
     width: 80%;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
     text-align: center;
     h1 {
       color: white;
