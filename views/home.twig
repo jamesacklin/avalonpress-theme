@@ -6,13 +6,20 @@
     <div class="carousel">
       {% set images = page.get_field('homepage_images') %}
       {% set firstimage = images|first %}
-      <div><img src="{{TimberImage(firstimage.image).src}}" alt=""></div>
+      <div>
+        <img src="{{TimberImage(firstimage.image).src}}" alt="">
+        <div class="headline">
+          <h1>{{firstimage.headline}}</h1>
+        </div>
+      </div>
       {% for item in images|slice(1) %}
-        <div><img data-lazy="{{TimberImage(item.image).src}}" /></div>
+        <div>
+          <img data-lazy="{{TimberImage(item.image).src}}" />
+          <div class="headline">
+            <h1>{{item.headline}}</h1>
+          </div>
+        </div>
       {% endfor %}
-    </div>
-    <div class="headline">
-      <h1>{{site.description}}</h1>
     </div>
   </div>
 
