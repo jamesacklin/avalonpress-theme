@@ -188,6 +188,7 @@ header[role=banner] {
   .carousel {
     position: relative;
     height: auto; width: 100%;
+    img { width: 100%; }
   }
   .headline {
     position: absolute;
@@ -234,6 +235,7 @@ header[role=banner] {
 
 .page-header {
   @extend .home-hero;
+  img { width: 100%; }
   background: $lightblue;
   text-align: center;
   overflow: hidden;
