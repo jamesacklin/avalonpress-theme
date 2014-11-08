@@ -13,7 +13,7 @@ Template Name: News
     'post_type' => 'page',
     'order' => 'ASC',
     'orderby' => 'menu_order',
-    'post__not_in' => [$home_id]
+    'post__not_in' => array(4)
   );
   $context['pages'] = Timber::get_posts($args);
   $args=array(
