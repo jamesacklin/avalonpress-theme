@@ -179,7 +179,7 @@ header[role=banner] {
     }
   }
   .home img {
-    width: 30%;
+    width: 90px;
   }
 }
 
@@ -427,7 +427,6 @@ footer {
   p { line-height: 3em; }
 }
 
-
 .browsehappy {
   text-align: center;
   background: black;
@@ -440,3 +439,5 @@ footer {
     text-decoration: none;
   }
 }
+
+.slick-slide img.slick-loading { display: none; }
