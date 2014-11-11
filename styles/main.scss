@@ -442,3 +442,23 @@ footer {
 }
 
 .slick-slide img.slick-loading { display: none; }
+
+.tool-pagination {
+  @include clearfix;
+  .prev, .next {
+    float: left;
+    width: 25%;
+  }
+  .next {
+    text-align: right;
+  }
+  .pages {
+    float: left;
+    width: 50%;
+    text-align: center;
+  }
+  ul {
+    text-align: center;
+    li { display: inline-block; }
+  }
+}

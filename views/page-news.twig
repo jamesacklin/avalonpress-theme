@@ -33,9 +33,37 @@
         {{post.get_content()}}
       </article>
     {% endfor %}
-<!--     <div class="location-grid">
-      {% include "stores.twig" %}
-    </div> -->
+    <div class="tool-pagination">
+      <div class="prev">
+      &nbsp;
+        {% if pagination.prev %}
+          <a href="{{pagination.prev.link}}" class="btn {{pagination.prev.link|length ? '' : 'invisible'}}">Prev</a>
+        {% endif %}
+      </div>
+      <div class="pages">
+        <ul>
+          <li>
+            <span>Page:</span>
+          </li>
+          {% for page in pagination.pages %}
+            <li>
+              {% if page.link %}
+                <a href="{{page.link}}" class="{{page.class}}">{{page.title}}</a>
+                {% else %}
+                  <span class="{{page.class}}"><strong>{{page.title}}</strong></span>
+                {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="next">
+        &nbsp;
+        {% if pagination.next %}
+          <a href="{{pagination.next.link}}" class="btn {{pagination.next.link|length ? '' : 'invisible'}}">Next</a>
+        {% endif %}
+      </div>
+    </div>
+
   </div>
 
 {% endblock %}
