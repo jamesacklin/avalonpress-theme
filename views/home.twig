@@ -7,14 +7,20 @@
       {% set images = page.get_field('homepage_images') %}
       {% set firstimage = images|first %}
       <div>
-        <img src="{{TimberImage(firstimage.image).src}}" alt="">
+        <picture>
+          <source srcset="{{TimberImage(firstimage.image).src" alt="" media="(min-width: 600px)">
+          <img srcset="{{TimberImage(firstimage.image).src|resize(600,900)}}" alt="">
+        </picture>
         <div class="headline">
           <h1>{{firstimage.headline}}</h1>
         </div>
       </div>
       {% for item in images|slice(1) %}
         <div>
-          <img data-lazy="{{TimberImage(item.image).src}}" />
+          <picture>
+            <source srcset="{{TimberImage(item.image).src" alt="" media="(min-width: 600px)">
+            <img data-lazy="{{TimberImage(item.image).src|resize(600,900)}}" />
+          </picture>
           <div class="headline">
             <h1>{{item.headline}}</h1>
           </div>
