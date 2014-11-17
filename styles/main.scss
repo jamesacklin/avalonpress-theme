@@ -205,8 +205,8 @@ header[role=banner] {
       background: rgba(0,0,0,0.4);
       margin-bottom: 0;
       padding: 0.25em;
-      @media (min-width: $screen-sm){ font-size: 6em;}
-      @media (min-width: 1000px){ font-size: 7.5em; }
+      @media (min-width: $screen-sm){ font-size: 4em;}
+      @media (min-width: 1000px){ font-size: 6em; }
       @media (min-width: 1600px) { font-size: 8em; }
     }
   }
