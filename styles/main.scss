@@ -293,6 +293,9 @@ article {
   @media (min-width: 1000px){
     padding-right: 10%;
   }
+  &.location {
+    .pullout .btn { margin-bottom: 0.5em; }
+  }
 }
 
 .pullout {
