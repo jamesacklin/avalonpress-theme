@@ -18,7 +18,8 @@ Template Name: Locations
     'post__not_in' => array(4)
   );
   $context['pages'] = Timber::get_posts($args);
-  $context['stores'] = Timber::get_posts('post_type=store&order=ASC&orderby=menu_order');
+  $context['avalon_stores'] = Timber::get_posts('post_type=store&order=ASC&orderby=menu_order&category_name=\'Avalon Exchange\'');
+  $context['reddz_stores'] = Timber::get_posts('post_type=store&order=ASC&orderby=menu_order&category_name=\'Reddz Trading\'');
   $templates = array('page-{{slug}}.twig');
   Timber::render($templates, $context);
   Timber::render(array('page-' . $post->post_name . '.twig', 'page.twig'), $context);

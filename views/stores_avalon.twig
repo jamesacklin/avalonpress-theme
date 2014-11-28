@@ -1,10 +1,16 @@
-{% for store in stores %}
+{% for store in avalon_stores %}
   {% set address = store.get_field('address') %}
   {% set address_fmt = address|replace({
     'Ave. ': 'Ave.<br>',
     'St. ': 'St.<br>',
     'Rd. ': 'Rd.<br>',
-    'Blvd. ': 'Blvd.<br>'
+    'Blvd. ': 'Blvd.<br>',
+    'Ln. ': 'Ln.<br>',
+    'Dr. ': 'Dr.<br>',
+    'N.E. ': 'N.E.<br>',
+    'N.W. ': 'N.W.<br>',
+    'S.E. ': 'S.E.<br>',
+    'S.W. ': 'S.W.<br>'
   }) %}
   {% set address_esc = address|replace({' ': '+', ',': '', '.': ''}) %}
   <div class="location" itemscope itemtype="http://schema.org/Organization">
@@ -31,9 +37,16 @@
     <div class="store-buttons">
       <p>
         <a href="http://www.google.com/maps/place/{{address_esc}}/" class="btn"><i class="fa fa-fw fa-map-marker"></i> Map</a>
-        <a href="http://www.instagram.com/{{store.get_field('instagram_username')}}" class="btn"><i class="fa fa-fw fa-instagram"></i> Instagram</a>
-        <a href="{{store.get_field('facebook_link')}}" class="btn"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a>
-        <!-- <a href="http://www.twitter.com/{{store.get_field('twitter_username')}}" class="btn"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a> -->
+        {% if store.get_field('instagram_username') %}
+          <a href="http://www.instagram.com/{{store.get_field('instagram_username')}}" class="btn"><i class="fa fa-fw fa-instagram"></i> Instagram</a>
+        {% endif %}
+        {% if store.get_field('facebook_link') %}
+          <a href="{{store.get_field('facebook_link')}}" class="btn"><i class="fa fa-fw fa-facebook"></i></a>
+        {% endif %}
+        {% if store.get_field('twitter_username') %}
+          <a href="http://www.twitter.com/{{store.get_field('twitter_username')}}" class="btn"><i class="fa fa-fw fa-twitter"></i></a>
+        {% endif %}
+      </p>
     </div>
   </div>
 {% endfor %}

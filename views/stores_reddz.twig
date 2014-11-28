@@ -1,0 +1,52 @@
+{% for store in reddz_stores %}
+  {% set address = store.get_field('address') %}
+  {% set address_fmt = address|replace({
+    'Ave. ': 'Ave.<br>',
+    'St. ': 'St.<br>',
+    'Rd. ': 'Rd.<br>',
+    'Blvd. ': 'Blvd.<br>',
+    'Ln. ': 'Ln.<br>',
+    'Dr. ': 'Dr.<br>',
+    'N.E. ': 'N.E.<br>',
+    'N.W. ': 'N.W.<br>',
+    'S.E. ': 'S.E.<br>',
+    'S.W. ': 'S.W.<br>'
+  }) %}
+  {% set address_esc = address|replace({' ': '+', ',': '', '.': ''}) %}
+  <div class="location" itemscope itemtype="http://schema.org/Organization">
+    {% if page.slug != "home" %}
+      <div class="store-map">
+        <a href="https://www.google.com/maps/place/{{address_esc}}/"><img src="https://maps.googleapis.com/maps/api/staticmap?center={{address_esc}}&zoom=16&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C{{address_esc}}" alt="Neighborhood Map of Reddz Trading {{store.title}}"></a>
+      </div>
+    {% endif %}
+    <div class="store-details">
+      <h2 itemprop="name">{{store.title}}</h2>
+      <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">{{address_fmt}}</p>
+      <p itemprop="telephone">{{store.get_field('phone')}}</p>
+    </div>
+    {% if page.slug != "home" %}
+      <div class="store-hours">
+        <h3>Store Hours</h3>
+        <p>{{store.get_field('store_hours')}}</p>
+      </div>
+      <div class="store-hours">
+        <h3>Buying Hours</h3>
+        <p>{{store.get_field('buying_hours')}}</p>
+      </div>
+    {% endif %}
+    <div class="store-buttons">
+      <p>
+        <a href="http://www.google.com/maps/place/{{address_esc}}/" class="btn"><i class="fa fa-fw fa-map-marker"></i> Map</a>
+        {% if store.get_field('instagram_username') %}
+          <a href="http://www.instagram.com/{{store.get_field('instagram_username')}}" class="btn"><i class="fa fa-fw fa-instagram"></i> Instagram</a>
+        {% endif %}
+        {% if store.get_field('facebook_link') %}
+          <a href="{{store.get_field('facebook_link')}}" class="btn"><i class="fa fa-fw fa-facebook"></i></a>
+        {% endif %}
+        {% if store.get_field('twitter_username') %}
+          <a href="http://www.twitter.com/{{store.get_field('twitter_username')}}" class="btn"><i class="fa fa-fw fa-twitter"></i></a>
+        {% endif %}
+      </p>
+    </div>
+  </div>
+{% endfor %}
