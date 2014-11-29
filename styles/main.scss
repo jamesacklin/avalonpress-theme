@@ -189,7 +189,11 @@ header[role=banner] {
   .carousel {
     position: relative;
     height: auto; width: 100%;
-    img { width: 100%; }
+    .slick-slide { background: black; }
+    .slick-slide img {
+      width: 100%;
+      opacity: 0.6666 !important
+    }
   }
   .headline {
     position: absolute;
@@ -202,7 +206,6 @@ header[role=banner] {
     h1 {
       color: white;
       display: inline-block;
-      background: rgba(0,0,0,0.4);
       margin-bottom: 0;
       padding: 0.25em;
       @media (min-width: $screen-sm){ font-size: 4em;}
@@ -236,8 +239,7 @@ header[role=banner] {
 
 .page-header {
   @extend .home-hero;
-  img { width: 100%; }
-  background: $lightblue;
+  background: black;
   text-align: center;
   overflow: hidden;
   height: 0;
@@ -251,6 +253,8 @@ header[role=banner] {
     padding-bottom: 30%;
   }
   img {
+    width: 100%;
+    opacity: 0.66;
     position: absolute;
     top: 50%;
     left: 50%;
