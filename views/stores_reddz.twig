@@ -13,10 +13,15 @@
     'S.W. ': 'S.W.<br>'
   }) %}
   {% set address_esc = address|replace({' ': '+', ',': '', '.': ''}) %}
+  {% set latlong = store.get_field('latlong') %}
   <div class="location" itemscope itemtype="http://schema.org/Organization">
     {% if page.slug != "home" %}
       <div class="store-map">
-        <a href="https://www.google.com/maps/place/{{address_esc}}/"><img src="https://maps.googleapis.com/maps/api/staticmap?center={{address_esc}}&zoom=16&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C{{address_esc}}" alt="Neighborhood Map of Reddz Trading {{store.title}}"></a>
+        {% if latlong %}
+          <a href="https://www.google.com/maps/place/{{address_esc}}/"><img src="https://maps.googleapis.com/maps/api/staticmap?center={{latlong}}&zoom=16&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C{{latlong}}" alt="Neighborhood Map of Reddz Trading {{store.title}}"></a>
+        {% else %}
+          <a href="https://www.google.com/maps/place/{{address_esc}}/"><img src="https://maps.googleapis.com/maps/api/staticmap?center={{address_esc}}&zoom=16&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C{{address_esc}}" alt="Neighborhood Map of Reddz Trading {{store.title}}"></a>
+        {% endif %}
       </div>
     {% endif %}
     <div class="store-details">
