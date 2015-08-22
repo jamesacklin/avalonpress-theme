@@ -217,8 +217,9 @@ header[role=banner] {
 
 .home-locations {
   @include flexbox;
-  @media (max-width: 890px){
-    @include flex-wrap(wrap);
+  @include flex-wrap(wrap);
+  @media (min-width: 890px){
+    @include justify-content(space-around);
   }
   @extend .container;
   font-size: 0.8em;
@@ -233,7 +234,7 @@ header[role=banner] {
     padding: 1em 0;
     width: 46%;
     @media (max-width: $screen-sm) and (orientation: portrait) { width: 100%; }
-    @media (min-width: 890px), (min-width: 890px) and (orientation: portrait) { width: 21%; }
+    @media (min-width: 890px) { width: 30.3333%; margin: 1.5%; }
   }
 }
 
